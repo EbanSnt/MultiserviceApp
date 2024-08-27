@@ -1,0 +1,15 @@
+package com.example.demo.services;
+
+import com.example.demo.repositories.SparePartRepository;
+
+@Service
+public class SparePartService {
+
+	@Autowired
+	SparePartRepository sparePartRepo;
+	
+	//Devuelve toda la lista de repuestos
+	public List<SparePart>allSpareParts(){
+		return sparePartRepo.findAll();
+	}
+}
