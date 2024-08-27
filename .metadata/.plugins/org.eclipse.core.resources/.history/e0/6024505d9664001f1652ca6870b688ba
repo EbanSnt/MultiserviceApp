@@ -1,0 +1,37 @@
+package com.example.demo.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.models.Diagnosis;
+import com.example.demo.repositories.DiagnosisRepository;
+
+@Service
+public class DiagnosisService {
+
+	@Autowired
+	DiagnosisRepository diagnosisRepo;
+	
+	// Devuelve todos los diagnosticos
+	public List<Diagnosis> allDiagnosis(){
+		return diagnosisRepo.findAll();
+	}
+	// Devuelve un diagnostico
+	public Diagnosis diagnosis(Long id) {
+		return diagnosisRepo.findById(id).orElse(null);
+	}
+	// Guarda un diagnostico
+	public Diagnosis saveDiagnosis(Diagnosis diagnosis) {
+		return diagnosisRepo.save(diagnosis);
+	}
+	// Elimina un diagnostico
+	public void deleteDiagnosis(Long diagnosisId) {
+		diagnosisRepo.deleteById(diagnosisId);
+	}
+	// Devuelve todos los diagnosticos de acuerdo a su precio de reparacion, en orden ascendente
+	public List<Diagnosis> allDiagnosisByPrice(){
+		return diagnosisRepo.findAllByOrderByRepairPriceAsc();
+	}
+}

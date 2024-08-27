@@ -1,0 +1,20 @@
+package com.example.demo.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.models.Customers;
+import com.example.demo.models.ProductReceipt;
+
+@Repository
+public interface ProductReceiptRepository extends CrudRepository<ProductReceipt, Long>{
+
+	List<ProductReceipt>findAll();
+	//Esta consulta es para buscar a los clientes por su nombre o apellido (coincidencias)
+	@Query("SELECT p FROM product_receipt p WHERE LOWER(p.numberReceipt) LIKE LOWER(CONCAT('%', :name, '%')) OR LOWER(c.lastname) LIKE LOWER(CONCAT('%', :name, '%'))")
+	List<ProductReceipt> findByNameContaining(@Param("number") String number);
+}

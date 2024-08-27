@@ -1,0 +1,21 @@
+package com.example.demo.models;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+@Table(name="spare_parts")
+public class SparePart {
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+	@NotEmpty
+	private String sparePartName;
+	
+	private String sparePartDetails;
+	
+	private int sparePartQuantity;
+}

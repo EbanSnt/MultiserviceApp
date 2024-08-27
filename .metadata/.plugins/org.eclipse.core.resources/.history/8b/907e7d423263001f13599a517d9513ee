@@ -1,0 +1,6 @@
+package com.example.demo.repositories;
+
+public interface WarrantyRepository extends CrudRepository<Warranty, Long> {
+
+	List<Warranty>findAll();
+}

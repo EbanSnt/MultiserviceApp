@@ -1,0 +1,63 @@
+package com.example.demo.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="users")
+public class Users {
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @NotEmpty(message="Se requiere nombre")
+    @Size(min=2, message="El nombre debe ser mayor a 1 caracter")
+    private String name;
+    
+    @NotEmpty(message="Last name is required.")
+    @Size(min=2, message="Last name needs at least 2 chars")
+    private String lastName;
+    
+    @NotEmpty(message="Username is required.")
+    @Column(unique = true)
+    @Size(min=2, message="Username needs at least 2 chars")
+    private String username;
+    
+    private String userDescription;
+    
+    @NotEmpty(message="Email is required.")
+    @Column(unique = true)
+    @Email(message="Email must be valid")
+    private String email;
+    
+    @NotEmpty(message="Password is required.")
+    @Size(min=8, message="Password needs at least 8 chars")
+    private String password;
+    
+    @Transient
+    private String confirm;
+    
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date birthDate;
+    
+    private String nationality;
+    private Boolean esAdmin;
+    private String province;
+    private String city;
+    private String profilePicture;
+    private String phone;
+    private String alternativePhone;
+    private String facebook;
+    private String twitter;
+    private String instagram;
+    private String linkedin;
+
+    @Column(updatable=false)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date createdAt;
+    
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date updatedAt;
+
+}

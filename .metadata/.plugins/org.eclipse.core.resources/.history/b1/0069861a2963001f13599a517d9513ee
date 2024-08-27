@@ -1,0 +1,20 @@
+package com.example.demo.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.models.Customers;
+
+@Repository
+public interface CustomersRepository extends CrudRepository<Customers, Long> {
+
+	List <Customers>findAll();
+	List <Customers>findAll();
+	//Esta consulta es para buscar a un cliente por su nombre o apellido (coincidencias)
+	@Query(value = "SELECT * FROM customers c WHERE LOWER(c.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(c.lastname)", nativeQuery = true)
+	List<Customers> findByKeywordContaining(@Param("keyword") String keyword);
+}
