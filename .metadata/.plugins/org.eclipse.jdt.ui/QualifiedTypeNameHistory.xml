@@ -12,15 +12,19 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="com.example.demo.models.Users"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-    <fullyQualifiedTypeName name="com.example.demo.models.Disarmaments"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.models.ProductReceipt"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="com.example.demo.models.SparePart"/>
     <fullyQualifiedTypeName name="com.example.demo.repositories.CommunicationsRepository"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.example.demo.models.Communications"/>
     <fullyQualifiedTypeName name="com.example.demo.repositories.CustomersRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.repositories.DiagnosisRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.models.Diagnosis"/>
+    <fullyQualifiedTypeName name="com.example.demo.repositories.DisarmamentsRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.models.Disarmaments"/>
+    <fullyQualifiedTypeName name="com.example.demo.repositories.HistoryRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.models.History"/>
+    <fullyQualifiedTypeName name="com.example.demo.repositories.PickUpRepository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
