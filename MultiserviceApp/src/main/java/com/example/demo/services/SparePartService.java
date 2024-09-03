@@ -12,7 +12,7 @@ import com.example.demo.repositories.SparePartRepository;
 public class SparePartService {
 
 	@Autowired
-	SparePartRepository sparePartRepo;
+	private SparePartRepository sparePartRepo;
 	
 	//Devuelve toda la lista de repuestos
 	public List<SparePart>allSpareParts(){

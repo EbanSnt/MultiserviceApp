@@ -13,7 +13,7 @@ import com.example.demo.repositories.ProductReceiptRepository;
 public class ProductReceiptService {
 
 	@Autowired
-	ProductReceiptRepository productRepo;
+	private ProductReceiptRepository productRepo;
 	
 	//Devuelve todos los recibos
 	public List<ProductReceipt>allProductReceipts(){

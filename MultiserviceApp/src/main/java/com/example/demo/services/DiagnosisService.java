@@ -13,7 +13,7 @@ import com.example.demo.repositories.DiagnosisRepository;
 public class DiagnosisService {
 
 	@Autowired
-	DiagnosisRepository diagnosisRepo;
+	private DiagnosisRepository diagnosisRepo;
 	
 	// Devuelve todos los diagnosticos
 	public List<Diagnosis> allDiagnosis(){

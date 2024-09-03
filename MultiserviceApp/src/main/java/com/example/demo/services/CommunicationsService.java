@@ -13,7 +13,7 @@ import com.example.demo.repositories.CommunicationsRepository;
 public class CommunicationsService {
 
 	@Autowired
-	CommunicationsRepository communicationsRepo;
+	private CommunicationsRepository communicationsRepo;
 	
 	// Devuelve todas las comunicaciones
 	public List<Communications> allCommunications(){

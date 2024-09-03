@@ -13,7 +13,7 @@ import com.example.demo.repositories.HistoryRepository;
 public class HistoryService {
 
 	@Autowired
-	HistoryRepository historyRepo;
+	private HistoryRepository historyRepo;
 	
 	// Devuelve todos los elementos del historial
 	public List<History> allHistory(){

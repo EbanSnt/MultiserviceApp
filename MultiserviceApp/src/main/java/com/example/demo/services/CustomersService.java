@@ -12,7 +12,7 @@ import com.example.demo.repositories.CustomersRepository;
 public class CustomersService {
 
 	@Autowired
-	CustomersRepository customersRepo;
+	private CustomersRepository customersRepo;
 	
 	// Devuelve todos las clientes
 	public List<Customers> allCostumers(){

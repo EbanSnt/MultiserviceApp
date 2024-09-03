@@ -13,7 +13,7 @@ import com.example.demo.repositories.PickUpRepository;
 public class PickUpService {
 
 	@Autowired
-	PickUpRepository pickUpRepo;
+	private PickUpRepository pickUpRepo;
 	
 	// Devuelve todos los retiros
 	public List<PickUp>allPickUp(){

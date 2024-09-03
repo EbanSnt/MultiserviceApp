@@ -13,7 +13,7 @@ import com.example.demo.repositories.DisarmamentsRepository;
 public class DisarmamentsService {
 
 	@Autowired
-	DisarmamentsRepository disarmamentsRepo;
+	private DisarmamentsRepository disarmamentsRepo;
 	
 	// Devuelve todos los desarmes
 		public List<Disarmaments> allDisarmament(){
