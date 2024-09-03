@@ -28,6 +28,7 @@
     <fullyQualifiedTypeName name="com.example.demo.models.ProductReceipt"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="com.example.demo.repositories.SparePartRepository"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.example.demo.repositories.UserRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.repositories.WarrantyRepository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

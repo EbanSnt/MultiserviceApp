@@ -1,0 +1,15 @@
+package com.example.demo.services;
+
+import com.example.demo.repositories.WarrantyRepository;
+
+@Service
+public class WarrantyService {
+
+	@Autowired
+	private WarrantyRepository warrantyRepo;
+	
+	// Devuelve todas las garantias
+	public List<Warranty> allWarranties(){
+		return warrantyRepo.findAll();
+	}
+}

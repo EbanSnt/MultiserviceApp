@@ -1,7 +1,0 @@
-package com.example.demo.models;
-
-@Entity
-@Table(name="warranties")
-public class Warranty {
-
-}
