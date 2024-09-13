@@ -1,0 +1,72 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.models.Customers;
+import com.example.demo.models.Users;
+import com.example.demo.services.CustomersService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
+@Controller
+public class CustomerController {
+
+	@Autowired
+	private CustomersService customerServ;
+	
+	@GetMapping("/customers")
+	public String customers(@ModelAttribute("newCustomer") Customers newCustomer,
+			Model model, HttpSession session) {
+		List<Customers> customers = customerServ.allCostumers();
+		model.addAttribute("customers",customers);
+		return "customers.jsp";
+	}
+	
+	@PostMapping("/createCustomer")
+	public String newCustomer(@Valid @ModelAttribute("newCustomer") Customers newCustomer,
+			 BindingResult result,HttpSession session,Model model) {
+		//Validación de que el usuario inició sesión
+        Users userTemp = (Users) session.getAttribute("userInSession"); //Obj User o null
+        if(userTemp == null) {
+            return "redirect:/login";
+        }
+        if(result.hasErrors()) {
+        	List <Customers> customers = customerServ.allCostumers();
+            model.addAttribute("customers", customers);
+            return "customers.jsp";
+        }else {
+        	customerServ.saveCustomer(newCustomer);
+        	return "redirect:/";
+        }
+	}
+	
+	@GetMapping("/customer/{id}")
+	public String customer(@PathVariable("id") Long id,@ModelAttribute("editCustomer") Customers editCustomer, Model model) {
+		Customers customer = customerServ.saveCustomer(editCustomer);
+		model.addAttribute("customer",customer);
+		return "customer.jsp";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

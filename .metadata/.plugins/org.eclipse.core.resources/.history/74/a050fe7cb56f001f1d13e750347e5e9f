@@ -1,0 +1,74 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.models.Communications;
+import com.example.demo.models.Customers;
+import com.example.demo.models.Users;
+import com.example.demo.services.CommunicationsService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
+@Controller
+public class CommunicationsController {
+
+	@Autowired
+	CommunicationsService communicationServ;
+	
+
+	@GetMapping("/communications")
+	public String customers(@ModelAttribute("newCommunicaction") Communications newCommunicaction,
+			Model model, HttpSession session) {
+		List<Communications> communications = communicationServ.allCommunications();
+		model.addAttribute("communications",communications);
+		return "communications.jsp";
+	}
+	
+	
+	@PostMapping("/createCommunication")
+	public String newCustomer(@Valid @ModelAttribute("newCommunicaction") Communications newCommunicaction,
+			 BindingResult result,HttpSession session,Model model) {
+		//Validación de que el usuario inició sesión
+        Users userTemp = (Users) session.getAttribute("userInSession"); //Obj User o null
+        if(userTemp == null) {
+            return "redirect:/login";
+        }
+        if(result.hasErrors()) {
+        	List <Communications> communications = communicationServ.allCommunications();
+            model.addAttribute("communications", communications);
+            return "communications.jsp";
+        }else {
+        	communicationServ.saveCommunication(newCommunicaction);
+        	return "redirect:/";
+        }
+	}
+	
+	
+	@GetMapping("/communication/{id}")
+	public String customer(@PathVariable("id") Long id,@ModelAttribute("editCommunication") Customers editCustomer, Model model) {
+		Customers customer = communicationServ.communication(id);
+		model.addAttribute("customer",customer);
+		return "customer.jsp";
+	}
+	
+	@DeleteMapping("/deleteCustomer/{id}")
+	public String deleteCustomer(@PathVariable("id") Long id,HttpSession session) {
+        Users userTemp = (Users) session.getAttribute("userInSession"); //Obj User o null
+        if(userTemp == null) {
+            return "redirect:/";
+        }
+  
+    	customerServ.deleteCustomer(id);
+    	return "redirect:/";
+        
+	}
+}

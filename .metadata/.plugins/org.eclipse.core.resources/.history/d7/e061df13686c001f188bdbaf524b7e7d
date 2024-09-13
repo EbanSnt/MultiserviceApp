@@ -1,0 +1,34 @@
+package com.example.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import com.example.demo.models.Customers;
+import com.example.demo.services.CustomersService;
+
+@Controller
+public class CustomerController {
+
+	@Autowired
+	private CustomersService customerServ;
+	
+	@GetMapping("/customers")
+	public String customers(@ModelAttribute("newCustomer") Customers newCustomer) {
+		return "customers.jsp";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
