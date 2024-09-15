@@ -1,0 +1,56 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import com.example.demo.models.Diagnosis;
+import com.example.demo.models.Disarmaments;
+import com.example.demo.models.ProductReceipt;
+import com.example.demo.models.Users;
+import com.example.demo.services.DisarmamentsService;
+import com.example.demo.services.ProductReceiptService;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class DisarmamentsController {
+
+	@Autowired
+	private DisarmamentsService disarmamentsServ;
+	
+	@Autowired
+	private ProductReceiptService productServ;
+	
+	@GetMapping("/disarmaments")
+	public String disarmaments(Model model,@ModelAttribute("newDisarmament") Disarmaments newDisarmament) {
+		List<Disarmaments> disarmaments = disarmamentsServ.allDisarmament();
+		model.addAttribute("disarmaments",disarmaments);
+        List<ProductReceipt> productReceipts = productServ.allProductReceipts();
+        model.addAttribute("productReceipts",productReceipts);
+		return "disarmaments.jsp";
+	}
+	
+	@PostMapping("/disarmamentCreate")
+	public String disarmamentCreate(Model model,@ModelAttribute("newDisarmament") Disarmaments newDisarmament,HttpSession session,BindingResult result) {
+		 Users userTemp = (Users) session.getAttribute("userInSession"); 
+	        if(userTemp == null) {
+	            return "redirect:/login";
+	        }
+	        if(result.hasErrors()) {
+	        	List<Disarmaments> disarmaments = disarmamentsServ.allDisarmament();
+	        	model.addAttribute("disarmaments",disarmaments);
+	            List<ProductReceipt> productReceipts = productServ.allProductReceipts();
+	            model.addAttribute("productReceipts",productReceipts);
+	            return "disarmaments.jsp";
+	        }else {
+	        	disarmamentsServ.saveDisarmament(newDisarmament);
+	        	return "redirect:/";
+	        }
+	}
+}

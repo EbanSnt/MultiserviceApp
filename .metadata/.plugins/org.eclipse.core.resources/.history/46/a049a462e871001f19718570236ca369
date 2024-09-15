@@ -1,0 +1,24 @@
+package com.example.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import com.example.demo.models.Disarmaments;
+import com.example.demo.services.DisarmamentsService;
+
+@Controller
+public class DisarmamentsController {
+
+	@Autowired
+	private DisarmamentsService disarmamentsServ;
+	
+	@GetMapping("/disarmaments")
+	public String disarmaments(Model model,@ModelAttribute("newDisarmament") Disarmaments newDisarmament) {
+		List<Disarmaments> disarmaments = disarmamentsServ.allDisarmament();
+		model.addAttribute("disarmaments",disarmaments);
+		return "disarmaments.jsp";
+	}
+}

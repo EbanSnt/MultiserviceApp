@@ -26,14 +26,20 @@
     <fullyQualifiedTypeName name="com.example.demo.repositories.UserRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.repositories.WarrantyRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.services.CustomersService"/>
-    <fullyQualifiedTypeName name="com.example.demo.models.Customers"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.example.demo.services.CommunicationsService"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="com.example.demo.models.Communications"/>
     <fullyQualifiedTypeName name="com.example.demo.services.DiagnosisService"/>
-    <fullyQualifiedTypeName name="com.example.demo.models.ProductReceipt"/>
-    <fullyQualifiedTypeName name="com.example.demo.services.ProductReceiptService"/>
     <fullyQualifiedTypeName name="com.example.demo.models.Diagnosis"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.example.demo.services.ProductReceiptService"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+    <fullyQualifiedTypeName name="java.nio.file.Path"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.example.demo.models.ProductReceipt"/>
+    <fullyQualifiedTypeName name="com.example.demo.models.Customers"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

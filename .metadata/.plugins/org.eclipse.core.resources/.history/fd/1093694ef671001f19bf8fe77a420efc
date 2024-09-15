@@ -1,0 +1,16 @@
+package com.example.demo.controllers;
+
+import com.example.demo.services.ProductReceiptService;
+
+@Controller
+public class ProductReceiptController {
+
+	@Autowired
+	private ProductReceiptService productServ;
+	
+	@GetMapping("/productReceipts")
+	public String productReceipts(Model model) {
+		List<ProductReceipt> productReceipts = productServ.allProductReceipts();
+		return "productReceipts.jsp";
+	}
+}

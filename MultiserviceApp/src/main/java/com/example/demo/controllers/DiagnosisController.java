@@ -59,7 +59,7 @@ public class DiagnosisController {
 	}
 	
 	@GetMapping("/createDiagnosis")
-	public String newDiagnosis(@Valid @ModelAttribute("newDiagnosis") Diagnosis newDiagnosis,HttpSession session,Model model) {
+	public String createDiagnosis(@Valid @ModelAttribute("newDiagnosis") Diagnosis newDiagnosis,HttpSession session,Model model) {
 		//Validación de que el usuario inició sesión
         Users userTemp = (Users) session.getAttribute("userInSession"); //Obj User o null
         if(userTemp == null) {
